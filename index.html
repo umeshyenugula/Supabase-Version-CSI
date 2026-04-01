@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Computer Society of India — GRIET</title>
+  <link rel="icon" type="image/png" href="static/images/csi-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <aside id="sidebar" class="sidebar" aria-hidden="true" aria-label="Mobile navigation" role="dialog" aria-modal="true">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="font-weight:800;color:var(--bark)">Menu</div>
+      <button id="sidebarClose" class="close-btn" aria-label="Close menu">Close</button>
+    </div>
+    <nav>
+      <a class="nav-link" data-page="main"         href="#home">Home</a>
+      <a class="nav-link" data-page="about-us"     href="#about-us">About Us</a>
+      <a class="nav-link" data-page="our-team"     href="#our-team">Our Team</a>
+      <a class="nav-link" data-page="events"       href="#events">Previous Events</a>
+      <a class="nav-link" data-page="certificates" href="#certificates">Certificates Portal</a>
+      <a class="nav-link" data-page="alumni"       href="#alumni">Our Alumni</a>
+    </nav>
+  </aside>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="header-left">
+        <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="sidebar" aria-label="Open menu">
+          <span class="bar"></span>
+        </button>
+        <div class="logo-box">
+          <img id="leftLogo" src="static/images/csi-logo.png" alt="CSI Logo">
+        </div>
+      </div>
+      <div class="header-center">
+        <h1 class="site-title">Computer Society of India</h1>
+        <span class="site-sub">Gokaraju Rangaraju Institute of Engineering &amp; Technology</span>
+      </div>
+      <div class="header-right">
+        <div class="logo-box">
+          <img id="rightLogo" src="static/images/griet-logo.png" alt="GRIET Logo">
+        </div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <nav class="nav-bar">
+        <a class="nav-link" data-page="main"         href="#home">Home</a>
+        <a class="nav-link" data-page="about-us"     href="#about-us">About Us</a>
+        <a class="nav-link" data-page="our-team"     href="#our-team">Our Team</a>
+        <a class="nav-link" data-page="events"       href="#events">Previous Events</a>
+        <a class="nav-link" data-page="certificates" href="#certificates">Certificates Portal</a>
+        <a class="nav-link" data-page="alumni"       href="#alumni">Our Alumni</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content"></main>
+
+
+  <footer id="footer">
+  <div class="footer-container">
+
+    <!-- Column 1 -->
+    <div class="footer-left fade-in">
+      <img src="/static/images/csi-logo.png" class="footer-logo">
+
+      <h3>Address</h3>
+      <p>
+        Gokaraju Rangaraju Institute of Engineering and Technology,<br>
+        Bachupally, Nizampet, Hyderabad,<br>
+        Telangana, India — 500090
+      </p>
+
+      <a href="https://maps.google.com" target="_blank" class="footer-btn">
+        Get Directions
+      </a>
+    </div>
+
+    <!-- Column 2 (NEW) -->
+    <div class="footer-contact-person fade-in">
+      <h3>Contact Person</h3>
+      <p><strong>Hasmitha Siddani</strong></p>
+      <p>CSI Principal Convenor</p>
+      <p><strong>Phone:</strong> +91 62815 58558</p>
+      <p><strong>Vikas Mada</strong></p>
+      <p>CSI Executive Convenor</p>
+      <p><strong>Phone:</strong> +919492295254</p>
+      <p><strong>Email:</strong> csigriet2023@gmail.com</p>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="footer-middle fade-in">
+      <h3>Quick Links</h3>
+
+      <ul class="footer-links">
+        <li><a href="/pages/events">Previous Events</a></li>
+        <li><a href="/pages/certificates">Certificates</a></li>
+        <li><a href="/pages/our-team">Our Team</a></li>
+        <li><a href="/pages/alumni">Alumni</a></li>
+      </ul>
+      <h3>Event Reports</h3>
+
+      <ul class="footer-links">
+        <li><a href="/reports/Csi_IdeaQuest_Report.pdf" target="_blank">IdeaQuest</a></li>
+        <li><a href="/reports/Year 2023-24 Report.pdf" target="_blank">2023-24</a></li>
+        <li><a href="/reports/Year 2022-23 Report.pdf" target="_blank">2022-23</a></li>
+      
+      </ul>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-right fade-in">
+      <div class="footer-buttons">
+        <a href="https://griet.ac.in" target="_blank" class="footer-btn">
+          Visit GRIET
+        </a>
+        <a href="https://www.instagram.com/csi_griet/" target="_blank" class="footer-btn">
+          Follow on Instagram
+        </a>
+        <a href="https://www.linkedin.com/company/csi-griet/" target="_blank" class="footer-btn">
+          Connect on LinkedIn
+        </a>
+        <a href="https://csiindia.org/home/memberRegister#step-1" class="footer-btn">
+          CSI Membership
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+ 
+  <div class="footer-bottom">© <span id="year"></span> CSI GRIET — All Rights Reserved.</div>
+  <div >Designed by Umesh &amp; Uday </div>
+</footer>
+
+  <script src="static/js/public.js"></script>
+</body>
+</html>

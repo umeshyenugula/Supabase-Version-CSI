@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Certificate Download — CSI GRIET</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Lexend',sans-serif; }
+body { background:#f1f5f9; -webkit-font-smoothing:antialiased; }
+.preview-wrapper { padding:40px; display:flex; justify-content:center; }
+#certificate { width:297mm; height:210mm; background:#fff; position:relative; overflow:hidden; box-shadow:0 20px 45px rgba(0,0,0,.12); }
+#certificate::after { content:""; position:absolute; inset:0; background:url("static/images/csi-logo.png") no-repeat center; background-size:300px; opacity:.045; z-index:0; pointer-events:none; }
+.frame { position:relative; z-index:1; margin:15mm; height:calc(100% - 30mm); border:3px solid #1e3c72; padding:20mm 24mm; display:grid; grid-template-rows:auto auto 1fr auto; }
+.frame::before { content:""; position:absolute; inset:6mm; border:1px solid rgba(30,60,114,.25); pointer-events:none; }
+.header { display:grid; grid-template-columns:auto 1fr auto; align-items:center; }
+.header img { width:85px; }
+.title { text-align:center; }
+.title h1 { font-size:32px; font-weight:700; letter-spacing:.6px; color:#1e293b; }
+.title h2 { font-size:15px; font-weight:400; margin-top:4px; color:#475569; }
+.divider { margin:22px 0; height:2px; background:linear-gradient(to right,transparent,#1e3c72,transparent); }
+.body { text-align:center; padding-top:10mm; }
+.body h3 { font-size:26px; font-weight:600; color:#1e3c72; letter-spacing:1.1px; margin-bottom:10px; }
+.body p { font-size:15.5px; color:#334155; line-height:1.6; }
+.name { font-size:44px; font-weight:700; margin:22px 0; letter-spacing:.6px; color:#0f172a; }
+.event { font-size:28px; font-weight:600; margin:12px 0; color:#1e3c72; }
+.footer { display:flex; justify-content:space-between; align-items:flex-end; font-size:14px; color:#334155; }
+.footer strong { font-weight:600; color:#0f172a; }
+.verify { font-size:12px; opacity:.75; text-align:right; }
+.cert-status { display:none; padding:8px 16px; border-radius:8px; font-size:13px; font-weight:700; margin:16px auto; max-width:420px; text-align:center; }
+.cert-status.verified   { display:block; background:#dcfce7; color:#166534; }
+.cert-status.unverified { display:block; background:#fee2e2; color:#991b1b; }
+.cert-status.checking   { display:block; background:#f0f0ff; color:#4d2aff; }
+button { margin:30px auto; display:block; padding:14px 34px; font-size:16px; background:linear-gradient(135deg,#1e3c72,#274690); color:#fff; border:none; border-radius:12px; cursor:pointer; box-shadow:0 10px 25px rgba(30,60,114,.35); transition:transform .2s,box-shadow .2s; }
+button:hover { transform:translateY(-1px); box-shadow:0 14px 30px rgba(30,60,114,.45); }
+button:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+@media print { body { background:white; } .preview-wrapper,button,.cert-status { display:none !important; } #certificate { box-shadow:none; } }
+</style>
+</head>
+<body>
+
+<div class="cert-status checking" id="certStatus">🔍 Verifying certificate…</div>
+
+<div class="preview-wrapper">
+  <div id="certificate">
+    <div class="frame">
+      <div class="header">
+        <img src="static/images/griet-logo.png" alt="GRIET">
+        <div class="title">
+          <h1>Computer Society of India</h1>
+          <h2>Gokaraju Rangaraju Institute of Engineering and Technology</h2>
+        </div>
+        <img src="static/images/csi-logo.png" alt="CSI">
+      </div>
+      <div class="divider"></div>
+      <div class="body">
+        <h3 id="certType">CERTIFICATE OF PARTICIPATION</h3>
+        <p>This Certificate is Proudly Presented To:</p>
+        <div class="name" id="certName"></div>
+        <p>for successful participation in the event</p>
+        <div class="event" id="certEvent"></div>
+        <p>an exclusive technical event conducted in the academic year <strong id="certYear"></strong> by CSI SB — GRIET.</p>
+        <p>The participant demonstrated <strong>technical skills, enthusiasm and a strong learning attitude</strong> throughout the event.</p>
+      </div>
+      <div class="footer">
+        <div><strong>CSI GRIET</strong><br>Faculty Coordinator</div>
+        <div class="verify" id="verifyText">Verify at: csi.griet.ac.in/#certificates</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="downloadBtn" onclick="downloadCert()">⬇ Download Certificate (PDF)</button>
+
+<script>
+const SUPABASE_URL  = "https://flalymcjyikdofwaklgn.supabase.co";
+const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsYWx5bWNqeWlrZG9md2FrbGduIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3ODYwOTEsImV4cCI6MjA5MDM2MjA5MX0.czvFwanHvGcqrmsXyQIEixlhRlRJBMbiNbgeAIpUOHQ";
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+const p = new URLSearchParams(window.location.search);
+const nameP    = p.get("name")     || "";
+const eventP   = p.get("event")    || "";
+const yearP    = p.get("year")     || "";
+const eventIdP = p.get("event_id") || "";
+
+document.getElementById("certName").textContent  = nameP.toUpperCase();
+document.getElementById("certEvent").textContent = eventP;
+document.getElementById("certYear").textContent  = yearP;
+
+(async function verify() {
+  const statusEl = document.getElementById("certStatus");
+  const verifyEl = document.getElementById("verifyText");
+  const typeEl   = document.getElementById("certType");
+  const dlBtn    = document.getElementById("downloadBtn");
+
+  if (!nameP || !eventIdP) {
+    statusEl.className = "cert-status unverified";
+    statusEl.textContent = " Certificate data missing — cannot verify.";
+    dlBtn.disabled = true;
+    return;
+  }
+
+  try {
+    const { data, error } = await sb
+      .from("certificate_participants")
+      .select("name,position")
+      .eq("event_id", eventIdP)
+      .ilike("name", nameP)
+      .limit(1);
+
+    if (error || !data || !data.length) {
+      statusEl.className = "cert-status unverified";
+      statusEl.textContent = "NOT VERIFIED — Participant record not found.";
+      verifyEl.innerHTML = '<span style="color:#b91c1c;font-weight:700;">NOT VERIFIED</span><br>Verification Failed at: csi.griet.ac.in/#certificates';
+      dlBtn.disabled = true;
+      return;
+    }
+
+    const pos = (data[0].position || "").toLowerCase();
+    if (["first","second","third","1","2","3"].includes(pos)) {
+      typeEl.textContent = "CERTIFICATE OF APPRECIATION";
+    }
+
+    statusEl.className = "cert-status verified";
+    statusEl.textContent = "Verified — " + data[0].name;
+    verifyEl.innerHTML = "<strong>✓ Verified</strong><br>Verify at: csi.griet.ac.in/#certificates";
+
+  } catch (err) {
+    statusEl.className = "cert-status unverified";
+    statusEl.textContent = "Verification failed — network error.";
+    console.error(err);
+  }
+})();
+
+function downloadCert() {
+  html2pdf().set({
+    margin: 0,
+    filename: "CSI_Certificate_" + nameP + ".pdf",
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: { scale: 3, useCORS: true, backgroundColor: "#ffffff", scrollX: 0, scrollY: 0 },
+    jsPDF: { unit: "mm", format: "a4", orientation: "landscape" }
+  }).from(document.getElementById("certificate")).save();
+}
+</script>
+</body>
+</html>

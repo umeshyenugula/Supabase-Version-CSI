@@ -1,0 +1,42 @@
+<section class="event-hero" style="min-height:320px;background:#1a1a2e;position:relative;">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);"></div>
+  <div class="hero-content" style="position:relative;z-index:2;padding:60px 24px 40px;">
+    <h1 id="eventTitle">Event Title</h1>
+    <p id="eventDate" style="font-size:16px;opacity:0.85;margin-top:8px;"></p>
+  </div>
+</section>
+
+<div class="container" style="padding-top:36px;padding-bottom:60px;">
+
+  <!-- Stats -->
+  <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:32px;">
+    <div class="stat-card" style="flex:1;min-width:130px;text-align:center;background:#fff;padding:20px;border-radius:14px;box-shadow:0 10px 28px rgba(20,20,40,0.06);">
+      <div style="font-size:13px;color:var(--muted);font-weight:600;">Participants</div>
+      <div style="font-size:32px;font-weight:900;background:linear-gradient(90deg,#7b61ff,#4ac3ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="eventParticipants">—</div>
+    </div>
+    <div class="stat-card" style="flex:1;min-width:130px;text-align:center;background:#fff;padding:20px;border-radius:14px;box-shadow:0 10px 28px rgba(20,20,40,0.06);">
+      <div style="font-size:13px;color:var(--muted);font-weight:600;">Teams</div>
+      <div style="font-size:32px;font-weight:900;background:linear-gradient(90deg,#7b61ff,#4ac3ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="eventTeams">—</div>
+    </div>
+  </div>
+
+  <!-- Image Carousel -->
+  <div id="eventCarouselSlot" style="margin-bottom:32px;"></div>
+
+  <!-- Description -->
+  <div class="event-description">
+    <h3 style="font-size:18px;font-weight:800;margin-bottom:14px;">About this Event</h3>
+    <div id="eventDescriptionWrapper" style="position:relative;">
+      <p id="eventDescription" style="color:var(--muted);line-height:1.75;margin:0;" class="event-desc-text"></p>
+      <button id="eventReadMoreBtn" class="btn-read-more" style="display:none;margin-top:12px;" onclick="toggleEventDescription()">Read More</button>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div id="eventTimelineSlot"></div>
+
+  <div style="margin-top:32px;">
+    <a class="btn" href="/pages/events" data-page="events"
+       onclick="event.preventDefault();window.loadSection('events',null,true);">← Back to Events</a>
+  </div>
+</div>
