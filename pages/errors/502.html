@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>502 — Bad Gateway | CSI GRIET</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{--blue:#0A2463;--accent:#f57c00;--amber:#ff9800;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:#fffbf5;color:#1a0f00;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .scene{text-align:center;padding:2rem;position:relative;z-index:2;}
+  .code{font-size:clamp(6rem,20vw,14rem);font-weight:800;line-height:1;letter-spacing:-0.05em;background:linear-gradient(135deg,#e65100,var(--amber),#ffcc02);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .title{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;margin:1rem 0 0.5rem;}
+  .sub{font-size:1rem;color:#888;max-width:440px;margin:0 auto 2rem;line-height:1.6;}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:100px;font-family:inherit;font-size:0.9rem;font-weight:600;text-decoration:none;transition:all 0.3s ease;cursor:pointer;border:none;}
+  .btn-primary{background:#1a0f00;color:#fff;} .btn-primary:hover{background:var(--accent);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:#1a0f00;border:2px solid rgba(0,0,0,0.14);} .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);animation:drift 14s ease-in-out infinite;}
+  .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(255,152,0,0.07),transparent 70%);top:-150px;left:-150px;}
+  .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(230,81,0,0.05),transparent 70%);bottom:-100px;right:-100px;animation-delay:-7s;}
+  @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+  .grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(255,152,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,152,0,0.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+  .icon-wrap{font-size:3rem;margin-bottom:1rem;opacity:0.2;}
+  .breadcrumb{font-size:0.75rem;color:#999;margin-bottom:1.5rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .breadcrumb a{color:var(--accent);text-decoration:none;}
+  .countdown{font-size:0.85rem;color:#888;margin-top:1.5rem;}
+  .countdown span{color:var(--accent);font-weight:700;font-size:1rem;}
+  .help-row{margin-top:1.25rem;font-size:0.85rem;color:#888;}
+  .help-row a{color:var(--accent);text-decoration:none;font-weight:600;}
+  .help-row a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="scene">
+  <div class="breadcrumb"><a href="https://csi.griet.ac.in/">CSI GRIET</a> &rarr; 502</div>
+  <div class="icon-wrap"><i class="fa-solid fa-plug-circle-xmark"></i></div>
+  <div class="code">502</div>
+  <div class="title">Bad Gateway</div>
+  <p class="sub">We received an invalid response from an upstream service. This is usually temporary. Auto-retrying in a few seconds…</p>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Retry Now</button>
+    <a href="https://csi.griet.ac.in/" class="btn btn-ghost"><i class="fa-solid fa-house"></i> Go Home</a>
+  </div>
+  <p class="countdown">Auto-retrying in <span id="timer">10</span>s</p>
+  <p class="help-row">
+    <i class="fa-solid fa-circle-question"></i>
+    Still not working? <a href="https://csi.griet.ac.in/help#troubleshooting">See troubleshooting tips</a> or
+    <a href="mailto:csigriet2023@gmail.com">get in touch</a>.
+  </p>
+</div>
+<script>
+  let t = 10;
+  const el = document.getElementById('timer');
+  const iv = setInterval(() => { t--; el.textContent = t; if (t <= 0) { clearInterval(iv); location.reload(); } }, 1000);
+</script>
+</body>
+</html>

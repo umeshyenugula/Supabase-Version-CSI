@@ -1,109 +1,100 @@
-<main class="certificates-page">
 
-  <!-- 🌟 HERO SECTION -->
-   <section class="events-hero">
-    <div class="hero-blobs">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-      <div class="blob b3"></div>
-    </div>
-    <div class="events-hero-content">
-      <h1>Certificates Portal</h1>
-      <p>Access and verify you participation and winner certificates for all CSI GRIET events.</p>
-    </div>
-  </section>
-
-  <!-- 🌟 SEARCH SECTION -->
-  <section class="cert-search">
-    <h2>Download Your Certificate</h2>
-
-    <div class="form-group">
-      <label>Year</label>
-      <select id="certYear">
-        <option value="">Select Year</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Event</label>
-      <select id="certEvent">
-        <option value="">Select Event</option>
-      </select>
-    </div>
-
-    <div class="form-group autocomplete">
-      <label>Your Name</label>
-      <input
-        type="text"
-        id="certName"
-        placeholder="Start typing your name"
-        autocomplete="off"
-      >
-      <div id="nameSuggestions" class="suggestions"></div>
-    </div>
-
-    <button id="previewCertBtn" class="btn">
-      View Certificate
-    </button>
-  </section>
-
-  <!-- 🌟 PREVIEW + DOWNLOAD (HIDDEN INITIALLY) -->
-  <section id="certificatePreviewSection" style="display:none;">
-
-    <div id="certificatePreview" class="certificate-root">
-
-      <!-- HEADER -->
-      <div class="cert-header">
-        <img src="/static/images/csi-logo.png" class="cert-logo left" alt="CSI">
-        <div class="cert-title">
-          <h1>Computer Society of India</h1>
-          <h2>Gokaraju Rangaraju Institute of Engineering and Technology</h2>
+<section class="cert-section">
+  <div class="container">
+    <div class="cert-portal">
+      <div data-aos="fade-up" style="text-align:center;">
+        <div class="eyebrow" style="margin-bottom:12px;">Certificate Portal</div>
+        <h1 class="cert-portal-title">Your achievement,<br>officially recognized.</h1>
+        <p class="cert-portal-sub">Select your event, enter your name, and download your certificate in seconds.</p>
+      </div>
+      <div class="cert-steps" aria-label="Certificate generation steps">
+        <div class="cert-step-dot active" id="step1Dot">1</div>
+        <div class="cert-step-line"><div class="cert-step-line-fill" id="line1"></div></div>
+        <div class="cert-step-dot" id="step2Dot">2</div>
+        <div class="cert-step-line"><div class="cert-step-line-fill" id="line2"></div></div>
+        <div class="cert-step-dot" id="step3Dot">3</div>
+        <div class="cert-step-line"><div class="cert-step-line-fill" id="line3"></div></div>
+        <div class="cert-step-dot" id="step4Dot">4</div>
+      </div>
+      <div class="cert-form-card" data-aos="fade-up">
+        <div class="form-group">
+          <label class="form-label" for="certYear">Academic Year</label>
+          <div class="form-select-wrap">
+            <select class="form-select" id="certYear" aria-label="Select year"><option value="">Select Year</option></select>
+          </div>
         </div>
-        <img src="/static/images/griet-logo.png" class="cert-logo right" alt="GRIET">
+        <div class="form-group">
+          <label class="form-label" for="certEvent">Event</label>
+          <div class="form-select-wrap">
+            <select class="form-select" id="certEvent" disabled aria-label="Select event"><option value="">Select Year First</option></select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="certName">Your Full Name</label>
+          <div class="autocomplete">
+            <input class="form-input" id="certName" type="text" placeholder="Type your name…" disabled autocomplete="off" aria-label="Enter your name">
+            <div class="suggestions-box" id="nameSuggestions" role="listbox"></div>
+          </div>
+        </div>
+        <button class="btn-cert" id="previewCertBtn" disabled>
+          <i class="fa-solid fa-eye"></i> Preview Certificate
+        </button>
       </div>
 
-      <hr class="cert-divider">
-
-      <!-- BODY -->
-      <div class="cert-body">
-        <h3 class="cert-type" id="certPreviewPosition">
-          Certificate of Participation
-        </h3>
-
-        <p class="cert-text">This is to certify that</p>
-
-        <h2 class="cert-name" id="certPreviewName">Participant Name</h2>
-
-        <p class="cert-text">
-          has successfully participated in the event
-        </p>
-
-        <h3 class="cert-event" id="certPreviewEvent">Event Name</h3>
-
-        <p class="cert-year">
-          conducted in the year <span id="certPreviewYear">2025</span>
-        </p>
+      <div class="cert-preview-section" id="certificatePreviewSection">
+        <div class="cert-preview-card">
+          <div class="cert-org">Computer Society of India · GRIET Chapter</div>
+          <div class="cert-cert-title">CERTIFICATE</div>
+          <div class="cert-cert-type" id="certPreviewPosition">Certificate of Participation</div>
+          <div style="width:60px;height:2px;background:linear-gradient(90deg,var(--csi-blue),var(--csi-accent));margin:16px auto;border-radius:1px;"></div>
+          <div style="font-size:0.82rem;color:var(--muted);margin-bottom:6px;">Proudly presented to</div>
+          <div class="cert-recipient-name" id="certPreviewName">—</div>
+          <div class="cert-for">For outstanding participation in</div>
+          <div class="cert-event-name" id="certPreviewEvent">—</div>
+          <div class="cert-year" id="certPreviewYear">—</div>
+          <button class="cert-download-btn" id="downloadCertBtn">
+            <i class="fa-solid fa-download"></i> Download Certificate PDF
+          </button>
+          <p style="margin-top:14px;font-size:0.78rem;color:var(--muted);line-height:1.6;text-align:center;">
+            <i class="fa-solid fa-circle-info" style="margin-right:5px;opacity:0.7;"></i>
+            These certificates are for <strong>verification purpose only</strong>. Original digital certificates are issued by the Organizer and are duly signed by authorized members.
+          </p>
+        </div>
       </div>
 
-      <!-- FOOTER -->
-      <div class="cert-footer">
-  <div class="cert-sign">
-    <strong>CSI GRIET</strong>
-    Faculty Coordinator
-  </div>
-
-  <div class="cert-verified">
-    This certificate is system generated and verified
-  </div>
-</div>
-
+      
+      <div id="certA4Wrapper" style="position:fixed;left:-9999px;top:0;width:297mm;height:210mm;background:#ffffff;pointer-events:none;z-index:-1;">
+        <div id="certA4">
+          <div id="certA4Frame">
+            <div class="ca4-header">
+              <img src="/assets/images/griet-logo.png" alt="GRIET" class="ca4-logo">
+              <div class="ca4-title-block">
+                <h1 class="ca4-org">Computer Society of India</h1>
+                <h2 class="ca4-inst">Gokaraju Rangaraju Institute of Engineering and Technology</h2>
+              </div>
+              <img src="/assets/images/csi-logo.png" alt="CSI" class="ca4-logo">
+            </div>
+            <div class="ca4-divider"></div>
+            <div class="ca4-body">
+              <h3 class="ca4-cert-title" id="ca4CertTitle">CERTIFICATE OF APPRECIATION</h3>
+              <p class="ca4-presented">This Certificate is Proudly Presented To:</p>
+              <div class="ca4-name" id="ca4Name"></div>
+              <p class="ca4-for-text">for his/her successful participation in the event</p>
+              <div class="ca4-event" id="ca4Event"></div>
+              <p class="ca4-year-text">an exclusive technical event conducted in the academic year <strong id="ca4Year"></strong> by CSI SB - GRIET.</p>
+              <p class="ca4-skills-text">The Participant demonstrated <strong>technical skills, enthusiasm and a strong learning attitude</strong> throughout the event.</p>
+            </div>
+            <div class="ca4-footer">
+              <div class="ca4-sig-block">
+                <strong class="ca4-sig-name">CSI GRIET</strong>
+                <div class="ca4-sig-role">Jesel Kumari Varolia</div>
+                <div class="ca4-sig-role">Faculty Coordinator</div>
+              </div>
+              <div class="ca4-verify" id="ca4Verify">Verify at: https://csi.griet.ac.in/certificates</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-<div style="text-align:center; margin:30px 0;">
-  <button id="downloadCertBtn" class="btn">
-    Download Certificate
-  </button>
-</div>
-
-  </section>
-
-</main>
+  </div>
+</section>

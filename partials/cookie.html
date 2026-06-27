@@ -1,0 +1,47 @@
+
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-banner-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+  <div class="cookie-banner-text">
+    <strong>We use cookies.</strong>
+    <span>We use a small set of cookies to remember your preferences and keep this site running smoothly. No tracking, no ads.</span>
+  </div>
+  <div class="cookie-banner-actions">
+    <button class="cookie-btn cookie-btn-ghost" id="cookieRejectBtn">Reject</button>
+    <button class="cookie-btn cookie-btn-info"  id="cookieInfoBtn" aria-haspopup="dialog">Learn more</button>
+    <button class="cookie-btn cookie-btn-accept" id="cookieAcceptBtn">Accept</button>
+  </div>
+</div>
+
+<button id="cookieFloatBtn" class="cookie-float-btn" aria-label="Cookie settings" style="display:none">
+  <i class="fa-solid fa-cookie-bite"></i>
+</button>
+
+
+<div id="cookieModal" class="tm-overlay cookie-modal-overlay" role="dialog" aria-modal="true" aria-label="Cookie information">
+  <div class="tm-modal cookie-modal">
+    <button class="tm-close" id="cookieModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="cookie-modal-body">
+      <div class="cookie-modal-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>How we use cookies</h3>
+      <p class="cookie-modal-lead">CSI GRIET uses a minimal set of cookies to make the site work well for you.</p>
+      <ul class="cookie-modal-list">
+        <li>
+          <i class="fa-solid fa-gear"></i>
+          <div><strong>Essential</strong><span>Remembers your cookie choice and basic site preferences. Always on.</span></div>
+        </li>
+        <li>
+          <i class="fa-solid fa-gauge-high"></i>
+          <div><strong>Performance</strong><span>Caches event and team data locally so pages load instantly on repeat visits.</span></div>
+        </li>
+        <li>
+          <i class="fa-solid fa-chart-simple"></i>
+          <div><strong>Analytics</strong><span>Anonymous usage patterns that help us improve the site. Only active if you accept.</span></div>
+        </li>
+      </ul>
+      <div class="cookie-modal-actions">
+        <button class="cookie-btn cookie-btn-ghost"  id="cookieModalReject">Reject all</button>
+        <button class="cookie-btn cookie-btn-accept" id="cookieModalAccept">Accept all</button>
+      </div>
+    </div>
+  </div>
+</div>

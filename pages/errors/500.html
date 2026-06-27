@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>500 — Server Error | CSI GRIET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{--blue:#0A2463;--accent:#2979FF;--red:#e53935;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff5f5;color:#1a0a0a;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .scene{text-align:center;padding:2rem;position:relative;z-index:2;}
+  .code{font-size:clamp(6rem,20vw,14rem);font-weight:800;line-height:1;letter-spacing:-0.05em;background:linear-gradient(135deg,#b71c1c,var(--red),#ff7043);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .title{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;margin:1rem 0 0.5rem;}
+  .sub{font-size:1rem;color:#888;max-width:440px;margin:0 auto 2rem;line-height:1.6;}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:100px;font-family:inherit;font-size:0.9rem;font-weight:600;text-decoration:none;transition:all 0.3s ease;cursor:pointer;border:none;}
+  .btn-primary{background:#1a0a0a;color:#fff;} .btn-primary:hover{background:var(--red);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:#1a0a0a;border:2px solid rgba(0,0,0,0.14);} .btn-ghost:hover{border-color:var(--red);color:var(--red);}
+  .orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);animation:drift 14s ease-in-out infinite;}
+  .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(229,57,53,0.06),transparent 70%);top:-150px;left:-150px;}
+  .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(183,28,28,0.05),transparent 70%);bottom:-100px;right:-100px;animation-delay:-7s;}
+  @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+  .grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(229,57,53,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(229,57,53,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+  .icon-wrap{font-size:3rem;margin-bottom:1rem;opacity:0.2;}
+  .breadcrumb{font-size:0.75rem;color:#999;margin-bottom:1.5rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .breadcrumb a{color:var(--red);text-decoration:none;}
+  .status-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(229,57,53,0.1);border:1px solid rgba(229,57,53,0.2);color:var(--red);font-size:0.72rem;font-weight:700;padding:5px 12px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;}
+  .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+  .help-row{margin-top:1.75rem;font-size:0.85rem;color:#888;}
+  .help-row a{color:var(--red);text-decoration:none;font-weight:600;}
+  .help-row a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="scene">
+  <div class="breadcrumb"><a href="https://csi.griet.ac.in/">CSI GRIET</a> &rarr; 500</div>
+  <div class="status-pill"><div class="pulse-dot"></div> Server Error</div>
+  <div class="icon-wrap"><i class="fa-solid fa-triangle-exclamation"></i></div>
+  <div class="code">500</div>
+  <div class="title">Something went wrong on our end</div>
+  <p class="sub">Our server ran into an unexpected issue. Our team has been notified and we're working on a fix. Please try again shortly.</p>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Try Again</button>
+    <a href="https://csi.griet.ac.in/" class="btn btn-ghost"><i class="fa-solid fa-house"></i> Go Home</a>
+  </div>
+  <p class="help-row">
+    <i class="fa-solid fa-circle-question"></i>
+    Persisting? <a href="https://csi.griet.ac.in/help#troubleshooting">Check troubleshooting tips</a> or
+    <a href="mailto:csigriet2023@gmail.com">report this to us</a>.
+  </p>
+</div>
+</body>
+</html>

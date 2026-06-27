@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/pages/errors/*"
+  [headers.values]
+    Cache-Control = "no-store"

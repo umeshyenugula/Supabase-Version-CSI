@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>503 — Maintenance | CSI GRIET</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{--blue:#0A2463;--accent:#2979FF;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:#f8fbff;color:#0D0D0D;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .scene{text-align:center;padding:2rem;position:relative;z-index:2;max-width:560px;}
+  .code{font-size:clamp(6rem,20vw,14rem);font-weight:800;line-height:1;letter-spacing:-0.05em;background:linear-gradient(135deg,var(--blue),var(--accent),#00e5ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .title{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;margin:1rem 0 0.5rem;}
+  .sub{font-size:1rem;color:#666;max-width:420px;margin:0 auto 2rem;line-height:1.6;}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(41,121,255,0.08);border:1px solid rgba(41,121,255,0.2);color:var(--accent);font-size:0.75rem;font-weight:700;padding:6px 14px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;}
+  .gear{animation:spin 3s linear infinite;display:inline-block;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .progress-bar{height:4px;background:rgba(41,121,255,0.1);border-radius:4px;overflow:hidden;margin:2rem auto;max-width:280px;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--accent));border-radius:4px;animation:progress 3s ease-in-out infinite;}
+  @keyframes progress{0%{width:0%}80%{width:90%}100%{width:90%}}
+  .social-row{display:flex;gap:10px;justify-content:center;margin-top:2rem;flex-wrap:wrap;}
+  .soc-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:100px;font-family:inherit;font-size:0.8rem;font-weight:600;text-decoration:none;border:1.5px solid rgba(0,0,0,0.1);color:#555;transition:all 0.2s ease;}
+  .soc-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);animation:drift 14s ease-in-out infinite;}
+  .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(41,121,255,0.06),transparent 70%);top:-150px;left:-150px;}
+  .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(10,36,99,0.05),transparent 70%);bottom:-100px;right:-100px;animation-delay:-7s;}
+  @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+  .grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(41,121,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(41,121,255,0.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+  .help-row{margin-top:1.25rem;font-size:0.85rem;color:#888;}
+  .help-row a{color:var(--accent);text-decoration:none;font-weight:600;}
+  .help-row a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="scene">
+  <div class="pill"><span class="gear"><i class="fa-solid fa-gear"></i></span> Under Maintenance</div>
+  <div class="code">503</div>
+  <div class="title">We're upgrading the experience</div>
+  <p class="sub">CSI GRIET's website is currently undergoing scheduled maintenance. We'll be back online very soon — better than ever.</p>
+  <div class="progress-bar"><div class="progress-fill"></div></div>
+  <div class="social-row">
+    <a class="soc-btn" href="https://instagram.com/csi_griet" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a class="soc-btn" href="mailto:csigriet2023@gmail.com"><i class="fa-solid fa-envelope"></i> Email Us</a>
+    <a class="soc-btn" href="https://csi.griet.ac.in/help" ><i class="fa-solid fa-circle-question"></i> Help &amp; Docs</a>
+  </div>
+  <p class="help-row">Questions? <a href="mailto:csigriet2023@gmail.com">Contact us directly</a> and we'll respond as soon as we're back.</p>
+</div>
+</body>
+</html>

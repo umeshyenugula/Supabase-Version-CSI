@@ -1,0 +1,121 @@
+
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-headline" id="heroTitle">
+          <span class="hero-headline-sk sk sk-light" id="heroTitleSk"></span>
+          <span class="hero-headline-text" id="heroTitleText" hidden></span>
+        </h1>
+        <p class="hero-sub" id="heroSubtitle">
+          We are the premier student technology chapter at GRIET — building engineers, leaders, and innovators through hands-on events, mentorship, and a thriving technical community.
+        </p>
+        <div class="hero-actions" id="heroActions">
+          <a class="btn-primary" id="heroBtn1" href="?page=events" data-page="events">
+            <i class="fa-solid fa-calendar-days"></i> Explore Events
+          </a>
+          <a class="btn-ghost" href="?page=about" data-page="about">
+            <i class="fa-solid fa-arrow-right"></i> About CSI GRIET
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-3d-stage" id="hero3DStage">
+          <div class="hero-image-frame hero-card-sk sk sk-light" id="heroImageFrame">
+            <div class="hero-card-face hero-card-front" id="heroCardFront" hidden>
+              <img id="heroImage" src="" alt="" loading="eager">
+              <div class="hero-image-overlay"></div>
+              <div class="hero-card-glow" aria-hidden="true"></div>
+              <div class="hero-image-badge">
+                <div class="hero-badge-label"></div>
+                <div class="hero-badge-title" id="heroBadgeTitle">—</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-orbit-ring hero-orbit-1" aria-hidden="true"></div>
+          <div class="hero-orbit-ring hero-orbit-2" aria-hidden="true"></div>
+          <div class="hero-particle-chip chip-1" aria-hidden="true"><i class="fa-solid fa-code"></i></div>
+          <div class="hero-particle-chip chip-2" aria-hidden="true"><i class="fa-solid fa-microchip"></i></div>
+          <div class="hero-particle-chip chip-3" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
+        </div>
+        <div class="hero-float-card card-1">
+          <div class="hero-float-value" id="heroFloatEvents">—</div>
+          <div class="hero-float-label">Events Hosted</div>
+        </div>
+        <div class="hero-float-card card-2">
+          <div class="hero-float-value" id="heroFloatMembers">—</div>
+          <div class="hero-float-label">Members Strong</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<section class="stats-section" aria-label="Club statistics">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number"><span class="stat-count" data-target="1200">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Total Participants</div>
+        <div class="stat-bar"></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="stat-count" data-target="280">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Teams Competed</div>
+        <div class="stat-bar"></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="stat-count" data-target="40">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Events Organized</div>
+        <div class="stat-bar"></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="stat-count" data-target="8">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Years of Excellence</div>
+        <div class="stat-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="events-section" aria-label="Recent events">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-inner">
+        <div>
+          <div class="eyebrow" style="margin-bottom:10px">Our Events</div>
+          <h2 class="display-md">Experiences worth remembering</h2>
+        </div>
+        <a class="view-all-link" href="?page=events" data-page="events">
+          View all events <i class="fa-solid fa-arrow-right" style="font-size:0.75em"></i>
+        </a>
+      </div>
+    </div>
+    <div class="bento-grid" id="bentoBGrid">
+      <div class="bento-card bento-card-1 bento-skeleton"></div>
+      <div class="bento-card bento-card-2 bento-skeleton"></div>
+      <div class="bento-card bento-card-3 bento-skeleton"></div>
+      <div class="bento-card bento-card-4 bento-skeleton"></div>
+      <div class="bento-card bento-card-5 bento-skeleton"></div>
+      <div class="bento-card bento-card-6 bento-skeleton"></div>
+    </div>
+  </div>
+</section>
+
+<section class="memories-section" aria-label="Club memories gallery">
+  <div class="memories-header container">
+    <div class="eyebrow" style="margin-bottom:10px">Gallery</div>
+    <h2 class="display-md">Moments that define us</h2>
+  </div>
+  <div class="memories-scroll" id="memoriesScroll" role="list">
+    <div class="memory-card bento-skeleton"></div>
+    <div class="memory-card bento-skeleton"></div>
+    <div class="memory-card bento-skeleton"></div>
+    <div class="memory-card bento-skeleton"></div>
+  </div>
+</section>

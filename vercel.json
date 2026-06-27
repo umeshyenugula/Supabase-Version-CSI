@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "errors": [
+    { "statusCode": 403, "source": "/pages/errors/403.html" },
+    { "statusCode": 404, "source": "/pages/errors/404.html" },
+    { "statusCode": 500, "source": "/pages/errors/500.html" },
+    { "statusCode": 502, "source": "/pages/errors/502.html" },
+    { "statusCode": 503, "source": "/pages/errors/503.html" }
+  ]
+}

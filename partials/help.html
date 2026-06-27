@@ -1,0 +1,138 @@
+
+<section class="help-section">
+  <div class="container">
+
+    <div class="help-hero" data-aos="fade-up">
+      <div class="eyebrow" style="margin-bottom:12px;">Help &amp; Documentation</div>
+      <h1 class="display-lg" style="margin-bottom:1rem;">How this site works</h1>
+      <p class="body-lg" style="max-width:680px;">
+        A quick look under the hood — how pages load, where data comes from,
+        and what to do if something doesn't look right.
+      </p>
+    </div>
+
+    
+    <div class="help-toc" data-aos="fade-up">
+      <a href="#how-it-works" class="help-toc-chip"><i class="fa-solid fa-diagram-project"></i> How it works</a>
+      <a href="#certificates-help" class="help-toc-chip"><i class="fa-solid fa-award"></i> Certificates</a>
+      <a href="#troubleshooting" class="help-toc-chip"><i class="fa-solid fa-screwdriver-wrench"></i> Troubleshooting</a>
+      <a href="#contact-help" class="help-toc-chip"><i class="fa-solid fa-headset"></i> Still stuck?</a>
+    </div>
+
+    
+    <div class="help-block" id="how-it-works" data-aos="fade-up">
+      <h2 class="help-block-title"><i class="fa-solid fa-diagram-project"></i> How the site works</h2>
+      <p class="help-block-sub">CSI GRIET is a single-page site — only <code>index.html</code> ever loads. Everything else is fetched and swapped in as you click around.</p>
+
+      <div class="help-steps">
+        <div class="help-step">
+          <div class="help-step-num">1</div>
+          <div>
+            <h4>One shell, many pages</h4>
+            <p>The navigation bar, footer, and cookie banner load once. When you click a link like "Events" or "Team", the site fetches just that page's content and slots it in — no full reload, no flash.</p>
+          </div>
+        </div>
+        <div class="help-step">
+          <div class="help-step-num">2</div>
+          <div>
+            <h4>Live data from our database</h4>
+            <p>Events, team members, alumni stories, and certificate records are stored in a database and pulled in fresh. The Home page always re-checks for the latest events and announcements every time you land on it.</p>
+          </div>
+        </div>
+        <div class="help-step">
+          <div class="help-step-num">3</div>
+          <div>
+            <h4>Smart caching, not stale data</h4>
+            <p>Pages like Team and Alumni cache their data for a short while so navigating back feels instant. Refresh the page anytime to force a clean reload.</p>
+          </div>
+        </div>
+        <div class="help-step">
+          <div class="help-step-num">4</div>
+          <div>
+            <h4>Clean URLs</h4>
+            <p>Every page has its own shareable link — <code>/events</code>, <code>/team</code>, <code>/certificates</code> — so you can bookmark or send a direct link to any section.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="help-block" id="certificates-help" data-aos="fade-up">
+      <h2 class="help-block-title"><i class="fa-solid fa-award"></i> Downloading your certificate</h2>
+      <p class="help-block-sub">The Certificates page walks you through four steps:</p>
+      <div class="help-steps">
+        <div class="help-step">
+          <div class="help-step-num">1</div>
+          <div><h4>Pick the academic year</h4><p>Choose the year your event took place in.</p></div>
+        </div>
+        <div class="help-step">
+          <div class="help-step-num">2</div>
+          <div><h4>Pick the event</h4><p>Select the specific event from that year.</p></div>
+        </div>
+        <div class="help-step">
+          <div class="help-step-num">3</div>
+          <div><h4>Type your name</h4><p>Start typing — matching names from our participant records will suggest themselves.</p></div>
+        </div>
+        <div class="help-step">
+          <div class="help-step-num">4</div>
+          <div><h4>Preview, then download</h4><p>Confirm your certificate looks right, then download it as a PDF.</p></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="help-block" id="troubleshooting" data-aos="fade-up">
+      <h2 class="help-block-title"><i class="fa-solid fa-screwdriver-wrench"></i> Troubleshooting guidelines</h2>
+      <p class="help-block-sub">Most issues clear up with a refresh. Here are the common ones:</p>
+
+      <div class="help-faq">
+        <details class="help-faq-item">
+          <summary>The Home page looks empty or outdated on first load</summary>
+          <p>This can happen right after the site updates in the background. Navigate to any other page and back to Home, or simply refresh the page once — it always pulls the latest data on load.</p>
+        </details>
+        <details class="help-faq-item">
+          <summary>My certificate PDF won't download</summary>
+          <p>The certificate tool needs a couple of small helper libraries to load from the network. On a slow or restricted connection (or with certain ad-blockers / browser extensions enabled) these can be delayed. Wait a few seconds and try the download button again — it will automatically retry once the tools are ready. If it still fails, try disabling browser extensions for this site or use a different network.</p>
+        </details>
+        <details class="help-faq-item">
+          <summary>I can't find my name in the certificate search</summary>
+          <p>Make sure you've selected the correct academic year and event first — name suggestions are scoped to that event. Names are matched against the official participant list for that event, so check for typos or try a partial name. If your name is genuinely missing, reach out using the contact details below.</p>
+        </details>
+        <details class="help-faq-item">
+          <summary>Images or photos aren't loading</summary>
+          <p>Photos are loaded from external image hosting and load lazily as you scroll. If a particular image consistently fails, it's usually a temporary hosting hiccup — refreshing the page resolves most cases.</p>
+        </details>
+        <details class="help-faq-item">
+          <summary>A page shows "Page failed to load"</summary>
+          <p>This means the page content couldn't be fetched — usually a momentary network blip. Refresh the page; if the issue persists, please report it using the feedback links in the footer.</p>
+        </details>
+        <details class="help-faq-item">
+          <summary>The site looks broken on my browser</summary>
+          <p>The site is built and tested for the latest versions of Chrome, Safari, Firefox, and Edge. If something looks off, try updating your browser or switching to one of these.</p>
+        </details>
+      </div>
+    </div>
+
+    
+    <div class="help-block help-contact-block" id="contact-help" data-aos="fade-up">
+      <h2 class="help-block-title"><i class="fa-solid fa-headset"></i> Still stuck?</h2>
+      <p class="help-block-sub">Reach out and we'll sort it out — or use the feedback links in the footer to report a bug.</p>
+      <div class="help-contact-actions">
+        <a class="btn-primary" href="mailto:csigriet2023@gmail.com"><i class="fa-solid fa-envelope"></i> Email Us</a>
+        <a class="btn-secondary" href="#" data-page="events"><i class="fa-solid fa-calendar-days"></i> Browse Events</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+/* The global nav-click delegation only binds [data-page] elements inside
+   nav.html / mobile-menu.html at boot time. Page partials (like this one)
+   load later, so we bind this button's click locally — same pattern used
+   in home.html and footer.html. */
+document.querySelector('#contact-help [data-page="events"]')?.addEventListener('click', e => {
+  e.preventDefault();
+  window.navigateTo('events');
+});
+</script>

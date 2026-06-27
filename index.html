@@ -1,149 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Computer Society of India — GRIET</title>
-  <link rel="icon" type="image/png" href="static/images/csi-logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/css/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Society of India GRIET</title>
+<meta name="description" content="Computer Society of India, GRIET Chapter — Where technology meets excellence. Events, team, alumni, and certificates.">
+<meta name="keywords" content="CSI, GRIET, Computer Society of India, Gokaraju Rangaraju, tech club, Hyderabad">
+<meta name="author" content="CSI GRIET">
+<meta name="theme-color" content="#0A2463">
+<link rel="icon" type="image/x-icon" href="/assets/images/csi-logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/csi-logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/csi-logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/csi-logo.png">
+<link rel="manifest" href="/manifest.json">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CSI GRIET — Computer Society of India">
+<meta property="og:description" content="Where technology meets excellence. Join the CSI GRIET community.">
+<meta property="og:url" content="https://csi.griet.ac.in/">
+<meta property="og:image" content="/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CSI GRIET">
+<meta name="twitter:description" content="Where technology meets excellence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/nav.css">
+<link rel="stylesheet" href="/assets/css/hero.css">
+<link rel="stylesheet" href="/assets/css/sections.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/cookie.css">
+<link rel="stylesheet" href="/assets/css/footer.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+.sk { border-radius: 10px; overflow: hidden; position: relative; background: rgba(255,255,255,0.04); }
+.sk::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: skShimmer 1.6s infinite;
+}
+@keyframes skShimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.sk-light { background: rgba(10,36,99,0.06) !important; }
+.sk-light::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(10,36,99,0.10) 50%, transparent 100%) !important;
+}
+
+/* Page loading overlay */
+#initial-loader {
+  position: fixed; inset: 0; background: #fff; z-index: 99999;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0;
+  transition: opacity 0.4s ease;
+}
+#initial-loader .loader-ring {
+  position: relative;
+  width: 80px; height: 80px;
+  display: flex; align-items: center; justify-content: center;
+}
+#initial-loader .loader-ring svg {
+  position: absolute; inset: 0;
+  width: 80px; height: 80px;
+  animation: spin 1s linear infinite;
+}
+#initial-loader .loader-logo-img {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative; z-index: 1;
+  background: linear-gradient(135deg, #0A2463, #2979FF);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.9rem; color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
 </head>
 <body>
 
-  <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-  <aside id="sidebar" class="sidebar" aria-hidden="true" aria-label="Mobile navigation" role="dialog" aria-modal="true">
-    <div style="display:flex;align-items:center;justify-content:space-between;">
-      <div style="font-weight:800;color:var(--bark)">Menu</div>
-      <button id="sidebarClose" class="close-btn" aria-label="Close menu">Close</button>
+<div id="initial-loader">
+  <div class="loader-ring">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="36" stroke="rgba(10,36,99,0.1)" stroke-width="4"/>
+      <path d="M40 4 A36 36 0 0 1 76 40" stroke="#2979FF" stroke-width="4" stroke-linecap="round"/>
+      <path d="M76 40 A36 36 0 0 1 56 71" stroke="#0A2463" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+    </svg>
+    <div class="loader-logo-img">
+      <img src="/assets/images/csi-logo.png" alt="CSI" style="width:100%;height:100%;object-fit:contain;border-radius:50%;" onerror="this.outerHTML='<span style=\'font-size:0.9rem;font-weight:800;color:white;font-family:Plus Jakarta Sans,sans-serif;\'>CSI</span>'">
     </div>
-    <nav>
-      <a class="nav-link" data-page="main"         href="#home">Home</a>
-      <a class="nav-link" data-page="about-us"     href="#about-us">About Us</a>
-      <a class="nav-link" data-page="our-team"     href="#our-team">Our Team</a>
-      <a class="nav-link" data-page="events"       href="#events">Previous Events</a>
-      <a class="nav-link" data-page="certificates" href="#certificates">Certificates Portal</a>
-      <a class="nav-link" data-page="alumni"       href="#alumni">Our Alumni</a>
-    </nav>
-  </aside>
-
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <div class="header-left">
-        <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="sidebar" aria-label="Open menu">
-          <span class="bar"></span>
-        </button>
-        <div class="logo-box">
-          <img id="leftLogo" src="static/images/csi-logo.png" alt="CSI Logo">
-        </div>
-      </div>
-      <div class="header-center">
-        <h1 class="site-title">Computer Society of India</h1>
-        <span class="site-sub">Gokaraju Rangaraju Institute of Engineering &amp; Technology</span>
-      </div>
-      <div class="header-right">
-        <div class="logo-box">
-          <img id="rightLogo" src="static/images/griet-logo.png" alt="GRIET Logo">
-        </div>
-      </div>
-    </div>
-    <div class="nav-row">
-      <nav class="nav-bar">
-        <a class="nav-link" data-page="main"         href="#home">Home</a>
-        <a class="nav-link" data-page="about-us"     href="#about-us">About Us</a>
-        <a class="nav-link" data-page="our-team"     href="#our-team">Our Team</a>
-        <a class="nav-link" data-page="events"       href="#events">Previous Events</a>
-        <a class="nav-link" data-page="certificates" href="#certificates">Certificates Portal</a>
-        <a class="nav-link" data-page="alumni"       href="#alumni">Our Alumni</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content"></main>
-
-
-  <footer id="footer">
-  <div class="footer-container">
-
-    <!-- Column 1 -->
-    <div class="footer-left fade-in">
-      <img src="/static/images/csi-logo.png" class="footer-logo">
-
-      <h3>Address</h3>
-      <p>
-        Gokaraju Rangaraju Institute of Engineering and Technology,<br>
-        Bachupally, Nizampet, Hyderabad,<br>
-        Telangana, India — 500090
-      </p>
-
-      <a href="https://maps.google.com" target="_blank" class="footer-btn">
-        Get Directions
-      </a>
-    </div>
-
-    <!-- Column 2 (NEW) -->
-    <div class="footer-contact-person fade-in">
-      <h3>Contact Person</h3>
-      <p><strong>Hasmitha Siddani</strong></p>
-      <p>CSI Principal Convenor</p>
-      <p><strong>Phone:</strong> +91 62815 58558</p>
-      <p><strong>Vikas Mada</strong></p>
-      <p>CSI Executive Convenor</p>
-      <p><strong>Phone:</strong> +919492295254</p>
-      <p><strong>Email:</strong> csigriet2023@gmail.com</p>
-    </div>
-
-    <!-- Column 3 -->
-    <div class="footer-middle fade-in">
-      <h3>Quick Links</h3>
-
-      <ul class="footer-links">
-        <li><a href="/pages/events">Previous Events</a></li>
-        <li><a href="/pages/certificates">Certificates</a></li>
-        <li><a href="/pages/our-team">Our Team</a></li>
-        <li><a href="/pages/alumni">Alumni</a></li>
-      </ul>
-      <h3>Event Reports</h3>
-
-      <ul class="footer-links">
-        <li><a href="/reports/Csi_IdeaQuest_Report.pdf" target="_blank">IdeaQuest</a></li>
-        <li><a href="/reports/Year 2023-24 Report.pdf" target="_blank">2023-24</a></li>
-        <li><a href="/reports/Year 2022-23 Report.pdf" target="_blank">2022-23</a></li>
-      
-      </ul>
-    </div>
-
-    <!-- Column 4 -->
-    <div class="footer-right fade-in">
-      <div class="footer-buttons">
-        <a href="https://griet.ac.in" target="_blank" class="footer-btn">
-          Visit GRIET
-        </a>
-        <a href="https://www.instagram.com/csi_griet/" target="_blank" class="footer-btn">
-          Follow on Instagram
-        </a>
-        <a href="https://www.linkedin.com/company/csi-griet/" target="_blank" class="footer-btn">
-          Connect on LinkedIn
-        </a>
-        <a href="https://csiindia.org/home/memberRegister#step-1" class="footer-btn">
-          CSI Membership
-        </a>
-      </div>
-    </div>
-
   </div>
-
- 
-  <div class="footer-bottom">© <span id="year"></span> CSI GRIET — All Rights Reserved.</div>
-  <div >Designed by Umesh &amp; Uday </div>
-</footer>
-
-  <script src="static/js/public.js"></script>
+</div>
+<div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+<div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+<div class="bg-orb bg-orb-3" aria-hidden="true"></div>
+<div id="page-transition"></div>
+<div id="lightbox" role="dialog" aria-label="Image viewer">
+  <img id="lightbox-img" src="" alt="">
+</div>
+<div id="nav-placeholder"></div>
+<div id="mobile-menu-placeholder"></div>
+<div id="cookie-placeholder"></div>
+<div id="redirect-modal-placeholder"></div>
+<main id="app">
+  <div id="page-home"         class="page active"><div class="partial-loading"><div class="spinner"></div></div></div>
+  <div id="page-about"        class="page"><div class="partial-loading"><div class="spinner"></div></div></div>
+  <div id="page-events"       class="page"><div class="partial-loading"><div class="spinner"></div></div></div>
+  <div id="page-event-detail" class="page"><div class="partial-loading"><div class="spinner"></div></div></div>
+  <div id="page-team"         class="page"><div class="partial-loading"><div class="spinner"></div></div></div>
+  <div id="page-alumni"       class="page"><div class="partial-loading"><div class="spinner"></div></div></div>
+  <div id="page-certificates" class="page"><div class="partial-loading"><div class="spinner"></div></div></div>
+  <div id="page-help"         class="page"><div class="partial-loading"><div class="spinner"></div></div></div>
+</main>
+<div id="footer-placeholder"></div>
+<div id="team-modal-placeholder"></div>
+<script src="/assets/js/config.js" defer></script>
+<script src="/assets/js/utils.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.min.js" defer></script>
+<script src="/assets/js/pages/home.js" defer></script>
+<script src="/assets/js/pages/events.js" defer></script>
+<script src="/assets/js/pages/team.js" defer></script>
+<script src="/assets/js/pages/alumni.js" defer></script>
+<script src="/assets/js/pages/certificates.js" defer></script>
+<script src="/assets/js/router.js" defer></script>
+<script src="/assets/js/ui/canvas.js" defer></script>
+<script src="/assets/js/ui/modals.js" defer></script>
+<script src="/assets/js/ui/cookie.js" defer></script>
+<script src="/assets/js/ui/tilt.js" defer></script>
+<script src="/assets/js/ui/lightbox.js" defer></script>
+<script src="/assets/js/ui/marquee.js" defer></script>
 </body>
 </html>
